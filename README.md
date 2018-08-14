@@ -24,6 +24,7 @@ MemSTATS consists of an unambiguous and easily-parsable PDB file for each protei
 •	“Reference” – a number pointing to a reference that describes the structure or its symmetry (see "References.txt")
 
 
+
 While compiling the set, we aimed to describe the diversity of membrane protein symmetries, while minimizing trivial cases. The following features are described for each symmetry (note that “;” is used to separate each distinct symmetry description within a structure): 
 
 •	“Order” – the number of repeats that constitute a given symmetry
@@ -43,6 +44,8 @@ While compiling the set, we aimed to describe the diversity of membrane protein 
 This entry corresponds to two repeats associated with a single symmetry. Repeat 1 constitutes of *residues 2-290 in chain B* AND *residues 2-290 in chain E* AND *residues 2-290 in chain H*. Repeat 2 constitutes of *residues 2-217 in chain C* AND *residues 2-217 in chain F* AND *residues 2-217 in chain I*.
 
 •	“Interdigitating” – whether the repeats are interdigitating 
+
+
 
 The PDB files of the structures are included in MemSTATS_pdbs.tar.gz. The files are formatted so that:
 

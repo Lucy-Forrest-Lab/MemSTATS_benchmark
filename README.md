@@ -51,5 +51,7 @@ The PDB files of the structures are included in MemSTATS_pdbs.tar.gz. The files 
 
 •	the biological unit and the names of the chains are consistent with the benchmark dataset
 
-•	there is only one 'altloc' allowed to avoid ambiguity in individual algorithms processing.
+•	there is only one 'altloc' allowed to avoid ambiguity in individual algorithms processing
+
+•	the only HETATM entries in the file indicate the membrane boundaries as determined by [PPM](https://dx.doi.org/10.1093%2Fnar%2Fgkr703)
 

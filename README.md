@@ -29,7 +29,7 @@ While compiling the set, we aimed to describe the diversity of membrane protein 
 
 •	“Order” – the number of repeats that constitute a given symmetry
 
-•	“Repeats-Topology” – the topology of the repeats with respect to the membrane 
+•	“Repeat-Topology” – the topology of the repeats with respect to the membrane 
 
 •	“Closed/Open” – whether the symmetry can be described by a point group (closed, such as C2 or D4) or has a translational component (open, such as helical or linear symmetries)
 

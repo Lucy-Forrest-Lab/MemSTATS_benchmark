@@ -3,7 +3,7 @@
 
 MemSTATS (Membrane protein Structures And Their Symmetries) is a manually-curated benchmark set of **quaternary and internal symmetries** in integral membrane protein structures. A protein is included in the dataset only if its complex or one of its membrane-spanning chains has a **distinct structural fold** compared to all other proteins within the benchmark. Moreover, a symmetry description is included only if the structural repeats are at least partially **within the membrane-embedded region of the protein**. 
 
-MemSTATS consists of unambiguous and easily-parsable PDB file for each protein in the benchmark, a general table with all symmetry descriptions, a table with only internal (or intrasubunit) symmetry descriptions of unique chains, and a table with only quaternary symmetry descriptions of the complexes. Each entry provides the following general structural information:
+MemSTATS consists of an unambiguous and easily-parsable PDB file for each protein in the benchmark, a general table with all symmetry descriptions, a table with only internal (or intrasubunit) symmetry descriptions of unique chains, and a table with only quaternary symmetry descriptions of the complexes. Each entry provides the following general structural information:
 
 •	“Fold-Abbreviation” – an abbreviation of the structural fold, of which the given protein is a representative
 

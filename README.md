@@ -21,7 +21,7 @@ MemSTATS consists of an unambiguous and easily-parsable PDB file for each protei
 
 •	“Structure-Title” – name of the given protein
 
-•	“Reference” – a number pointing to a reference that describes the structure or its symmetry (see "References.doc")
+•	“Reference” – a number pointing to a reference that describes the structure or its symmetry (see "References.txt")
 
 
 While compiling the set, we aimed to describe the diversity of membrane protein symmetries, while minimizing trivial cases. The following features are described for each symmetry (note that “;” is used to separate each distinct symmetry description within a structure): 
@@ -30,7 +30,7 @@ While compiling the set, we aimed to describe the diversity of membrane protein 
 
 •	“Repeats-Topology” – the topology of the repeats with respect to the membrane 
 
-•	“Cyclic/Open” – whether the symmetry can be described by a point group (cyclic) or has a translational component (open, such as helical or linear symmetries)
+•	“Closed/Open” – whether the symmetry can be described by a point group (closed, such as C2 or D4) or has a translational component (open, such as helical or linear symmetries)
 
 •	“Internal/Quaternary” – whether the symmetry is intrasubunit (internal) or intersubunit (quaternary)
 
@@ -43,4 +43,10 @@ While compiling the set, we aimed to describe the diversity of membrane protein 
 This entry corresponds to two repeats associated with a single symmetry. Repeat 1 constitutes of *residues 2-290 in chain B* AND *residues 2-290 in chain E* AND *residues 2-290 in chain H*. Repeat 2 constitutes of *residues 2-217 in chain C* AND *residues 2-217 in chain F* AND *residues 2-217 in chain I*.
 
 •	“Interdigitating” – whether the repeats are interdigitating 
+
+The PDB files of the structures are included in MemSTATS_pdbs.tar.gz. The files are formatted so that:
+
+•	the biological unit and the names of the chains are consistent with the benchmark dataset
+
+•	there is only one 'altloc' allowed to avoid ambiguity in individual algorithms processing.
 

@@ -56,3 +56,4 @@ The PDB files of the structures are included in MemSTATS_pdbs.tar.gz. The files 
 •	the only HETATM entries in the file indicate the membrane boundaries as determined by [PPM](https://dx.doi.org/10.1093%2Fnar%2Fgkr703); HETATM entries of MSE residues have been renamed to ATOM entries
 
 
+Results of benchmarked symmetry-detection methods can found in the **benchmarked_algorithms/** subfolder.

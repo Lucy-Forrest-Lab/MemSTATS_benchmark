@@ -1,0 +1,117 @@
+# TN = True negative, FN = false negative, complete = method detected the entire range of the symmetric repeats, partial = method detected only part of the repeats
+Fold-Abbreviation	Fold-Name	PDB	Resolution	Secondary-Structure-Composition	TM-Chains	Structurally-Unique-Chains	Order	Repeat-Topology	Closed/Open-Symmetry-Group	Internal/Quaternary	Described	Repeats	Interdigitating	Structure-Title	Reference	CE-Symm	EncoMPASS	SymD-10	AnAnaS	BioJava
+OST	Oligosaccharyl transferase	3rce_A	3.4	alpha	A	A	None	None	None	None	Yes	None	None	Bacterial oligosaccharyltransferase PglB	[1]	TN	TN	TN	-	-
+Asp Proteases	Aspartate Proteases	4hyg_A	3.32	alpha	A;B;C;D	A	None	None	None	None	None	None	None	Intramembrane aspartate protease	[2]	TN	TN	TN	-	-
+Glu Proteases	Glutamate Proteases	4cad_C	2.5	alpha	C	C	None	None	None	None	Yes	None	None	Integral membrane protease Rce1	[3]	TN	TN	TN	-	-
+Ser Proteases	Serine Proteases	2nr9_A	2.2	alpha	A	A	None	None	None	None	Yes	None	None	Protease GlpG	[4]	TN	TN	TN	-	-
+TatC	Twin-arginine protein transport component	4b4a_A	3.5	alpha	A	A	None	None	None	None	Yes	None	None	Tatc Core of the Twin-Arginine Protein Transport System	[5]	TN	TN	TN	-	-
+YidC	Sec-independent membrane protein insertion chaperone	3wo7_A	3.2	alpha	A	A	None	None	None	None	Yes	None	None	YidC	[6]	TN	TN	TN	-	-
+P-type ATPase	P-type ATPase	1su4_A	2.4	alpha	A	A	None	None	None	None	Yes	None	None	Sarcolipin-bound calcium pump	[7]	TN	TN	TN	-	-
+BcsA	Subunit A of the cellulose synthesis and translocation systems	4hg6_A	3.25	alpha	A;B	A;B	None	None	None	None	Yes	None	None	Complex of BcsA and BcsB	[8]	TN	TN	TN	-	-
+BcsA	Subunit A of the cellulose synthesis and translocation systems	4hg6_B	3.25	alpha	A;B	A;B	None	None	None	None	Yes	None	None	Complex of BcsA and BcsB	[8]	TN	TN	TN	-	-
+AMPAR	α-amino-3-hydroxy-5-methyl-4-isoxazolepropionic acid receptor	4u1w_A	3.25	alpha	A;B;C;D	A	None	None	None	None	None	None	None	AMPA receptor GluA2	[9]	TN	TN	TN	-	-
+Class C GPCR	Class C GPCR	4or2_A	2.8	alpha	A;B	A	2	Parallel	Closed	Internal	No	(A_583-687,A_744-840)	No	Class C GPCR metabotropic glutamate receptor 1	[10]	FN	FN	FN	-	-
+Complex III	Cytochrome bc1	1bcc_C	2.7	alpha	C;D;E;G;J;M;N;O;Q;S	C;D;J	2	Parallel	Closed	Internal	No	(C_30-108,C_112-206)	No	Cytochrome bc1	[11]	FN	complete	FN	-	-
+Complex III	Cytochrome bc1	1bcc_D	2.7	alpha	C;D;E;G;J;M;N;O;Q;S	C;D;J	None	None	None	None	None	None	None	Cytochrome bc1	[11]	TN	TN	TN	-	-
+Complex III	Cytochrome bc1	1bcc_J	2.7	alpha	C;D;E;G;J;M;N;O;Q;S	C;D;J	None	None	None	None	None	None	None	Cytochrome bc1	[11]	TN	TN	TN	-	-
+Complex IV	Cytochrome c oxidase	1occ_A	2.8	alpha	A;B;C;D;G;I;J;K;L;M;N;O;P;Q;T;V;W;X;Y;Z	A;B;C;D;G;I;J;K;L;M;P	3	Parallel	Closed	Internal	Yes	(A_13-173,A_180-327,A_334-481)	No	Bacterial cytochrome c oxidase	[12]	complete	complete	complete	-	-
+Complex IV	Cytochrome c oxidase	1occ_B	2.8	alpha	A;B;C;D;G;I;J;K;L;M;N;O;P;Q;T;V;W;X;Y;Z	A;B;C;D;G;I;J;K;L;M;P	None	None	None	None	None	None	None	Bacterial cytochrome c oxidase	[12]	TN	TN	TN	-	-
+Complex IV	Cytochrome c oxidase	1occ_C	2.8	alpha	A;B;C;D;G;I;J;K;L;M;N;O;P;Q;T;V;W;X;Y;Z	A;B;C;D;G;I;J;K;L;M;P	None	None	None	None	None	None	None	Bacterial cytochrome c oxidase	[12]	TN	TN	TN	-	-
+Complex IV	Cytochrome c oxidase	1occ_D	2.8	alpha	A;B;C;D;G;I;J;K;L;M;N;O;P;Q;T;V;W;X;Y;Z	A;B;C;D;G;I;J;K;L;M;P	None	None	None	None	None	None	None	Bacterial cytochrome c oxidase	[12]	TN	TN	TN	-	-
+Complex IV	Cytochrome c oxidase	1occ_G	2.8	alpha	A;B;C;D;G;I;J;K;L;M;N;O;P;Q;T;V;W;X;Y;Z	A;B;C;D;G;I;J;K;L;M;P	None	None	None	None	None	None	None	Bacterial cytochrome c oxidase	[12]	TN	TN	TN	-	-
+Complex IV	Cytochrome c oxidase	1occ_I	2.8	alpha	A;B;C;D;G;I;J;K;L;M;N;O;P;Q;T;V;W;X;Y;Z	A;B;C;D;G;I;J;K;L;M;P	None	None	None	None	None	None	None	Bacterial cytochrome c oxidase	[12]	TN	TN	TN	-	-
+Complex IV	Cytochrome c oxidase	1occ_J	2.8	alpha	A;B;C;D;G;I;J;K;L;M;N;O;P;Q;T;V;W;X;Y;Z	A;B;C;D;G;I;J;K;L;M;P	None	None	None	None	None	None	None	Bacterial cytochrome c oxidase	[12]	TN	TN	TN	-	-
+Complex IV	Cytochrome c oxidase	1occ_K	2.8	alpha	A;B;C;D;G;I;J;K;L;M;N;O;P;Q;T;V;W;X;Y;Z	A;B;C;D;G;I;J;K;L;M;P	None	None	None	None	None	None	None	Bacterial cytochrome c oxidase	[12]	TN	TN	TN	-	-
+Complex IV	Cytochrome c oxidase	1occ_L	2.8	alpha	A;B;C;D;G;I;J;K;L;M;N;O;P;Q;T;V;W;X;Y;Z	A;B;C;D;G;I;J;K;L;M;P	None	None	None	None	None	None	None	Bacterial cytochrome c oxidase	[12]	TN	TN	TN	-	-
+Complex IV	Cytochrome c oxidase	1occ_M	2.8	alpha	A;B;C;D;G;I;J;K;L;M;N;O;P;Q;T;V;W;X;Y;Z	A;B;C;D;G;I;J;K;L;M;P	None	None	None	None	None	None	None	Bacterial cytochrome c oxidase	[12]	TN	TN	TN	-	-
+Complex IV	Cytochrome c oxidase	1occ_P	2.8	alpha	A;B;C;D;G;I;J;K;L;M;N;O;P;Q;T;V;W;X;Y;Z	A;B;C;D;G;I;J;K;L;M;P	None	None	None	None	None	None	None	Bacterial cytochrome c oxidase	[12]	TN	TN	TN	-	-
+PS-II	Photosystem II	4pj0_A	2.437	alpha	A;B;C;D;E;F;H;I;J;K;L;M;R;T;X;Y;Z;a;b;c;d;e;f;h;i;j;k;l;m;r;t;x;y;z	A;B;E;F;H;I;K;L;R;T;Y;Z;m	2	Antiparallel	Closed	Internal	Yes	(A_22-139,A_190-296)	No	T.elongatus Photosystem II	[14-16]	FN	complete	FN	-	-
+PS-II	Photosystem II	4pj0_B	2.437	alpha	A;B;C;D;E;F;H;I;J;K;L;M;R;T;X;Y;Z;a;b;c;d;e;f;h;i;j;k;l;m;r;t;x;y;z	A;B;E;F;H;I;K;L;R;T;Y;Z;m	3	Parallel	Closed	Internal	Yes	(B_3-117,B_122-220,B_221-473)	No	T.elongatus Photosystem II	[14-16]	FN	complete	FN	-	-
+PS-II	Photosystem II	4pj0_E	2.437	alpha	A;B;C;D;E;F;H;I;J;K;L;M;R;T;X;Y;Z;a;b;c;d;e;f;h;i;j;k;l;m;r;t;x;y;z	A;B;E;F;H;I;K;L;R;T;Y;Z;m	None	None	None	None	None	None	None	T.elongatus Photosystem II	[14-16]	TN	TN	TN	-	-
+PS-II	Photosystem II	4pj0_F	2.437	alpha	A;B;C;D;E;F;H;I;J;K;L;M;R;T;X;Y;Z;a;b;c;d;e;f;h;i;j;k;l;m;r;t;x;y;z	A;B;E;F;H;I;K;L;R;T;Y;Z;m	None	None	None	None	None	None	None	T.elongatus Photosystem II	[14-16]	TN	TN	TN	-	-
+PS-II	Photosystem II	4pj0_H	2.437	alpha	A;B;C;D;E;F;H;I;J;K;L;M;R;T;X;Y;Z;a;b;c;d;e;f;h;i;j;k;l;m;r;t;x;y;z	A;B;E;F;H;I;K;L;R;T;Y;Z;m	None	None	None	None	None	None	None	T.elongatus Photosystem II	[14-16]	TN	TN	TN	-	-
+PS-II	Photosystem II	4pj0_I	2.437	alpha	A;B;C;D;E;F;H;I;J;K;L;M;R;T;X;Y;Z;a;b;c;d;e;f;h;i;j;k;l;m;r;t;x;y;z	A;B;E;F;H;I;K;L;R;T;Y;Z;m	None	None	None	None	None	None	None	T.elongatus Photosystem II	[14-16]	TN	TN	TN	-	-
+PS-II	Photosystem II	4pj0_K	2.437	alpha	A;B;C;D;E;F;H;I;J;K;L;M;R;T;X;Y;Z;a;b;c;d;e;f;h;i;j;k;l;m;r;t;x;y;z	A;B;E;F;H;I;K;L;R;T;Y;Z;m	None	None	None	None	None	None	None	T.elongatus Photosystem II	[14-16]	TN	TN	TN	-	-
+PS-II	Photosystem II	4pj0_L	2.437	alpha	A;B;C;D;E;F;H;I;J;K;L;M;R;T;X;Y;Z;a;b;c;d;e;f;h;i;j;k;l;m;r;t;x;y;z	A;B;E;F;H;I;K;L;R;T;Y;Z;m	None	None	None	None	None	None	None	T.elongatus Photosystem II	[14-16]	TN	TN	TN	-	-
+PS-II	Photosystem II	4pj0_R	2.437	alpha	A;B;C;D;E;F;H;I;J;K;L;M;R;T;X;Y;Z;a;b;c;d;e;f;h;i;j;k;l;m;r;t;x;y;z	A;B;E;F;H;I;K;L;R;T;Y;Z;m	None	None	None	None	None	None	None	T.elongatus Photosystem II	[14-16]	TN	TN	TN	-	-
+PS-II	Photosystem II	4pj0_T	2.437	alpha	A;B;C;D;E;F;H;I;J;K;L;M;R;T;X;Y;Z;a;b;c;d;e;f;h;i;j;k;l;m;r;t;x;y;z	A;B;E;F;H;I;K;L;R;T;Y;Z;m	None	None	None	None	None	None	None	T.elongatus Photosystem II	[14-16]	TN	TN	TN	-	-
+PS-II	Photosystem II	4pj0_Y	2.437	alpha	A;B;C;D;E;F;H;I;J;K;L;M;R;T;X;Y;Z;a;b;c;d;e;f;h;i;j;k;l;m;r;t;x;y;z	A;B;E;F;H;I;K;L;R;T;Y;Z;m	None	None	None	None	None	None	None	T.elongatus Photosystem II	[14-16]	TN	TN	TN	-	-
+PS-II	Photosystem II	4pj0_Z	2.437	alpha	A;B;C;D;E;F;H;I;J;K;L;M;R;T;X;Y;Z;a;b;c;d;e;f;h;i;j;k;l;m;r;t;x;y;z	A;B;E;F;H;I;K;L;R;T;Y;Z;m	None	None	None	None	None	None	None	T.elongatus Photosystem II	[14-16]	TN	TN	TN	-	-
+PS-II	Photosystem II	4pj0_m	2.437	alpha	A;B;C;D;E;F;H;I;J;K;L;M;R;T;X;Y;Z;a;b;c;d;e;f;h;i;j;k;l;m;r;t;x;y;z	A;B;E;F;H;I;K;L;R;T;Y;Z;m	None	None	None	None	None	None	None	T.elongatus Photosystem II	[14-16]	TN	TN	TN	-	-
+ABC export	ABC export	2hyd_A	3.0	alpha	A;B	A	2	Antiparallel	Open	Internal	Yes	(A_3-157,A_168-319)	No	Multidrug ABC transporter SAV1866	[17]	FN	complete	FN	-	-
+ABC export	ABC export	5ko2_A	3.3	alpha	A	A	2	Parallel	Closed	Internal	Yes	(A_29-626,A_687-1271)	No	P-glycoprotein	[18]	complete	complete	complete	-	-
+ABC import I	ABC import I	2onk_C	3.1	alpha	C;D	C	None	None	None	None	None	None	None	Molybdate transporter ModBC	[19]	TN	TN	TN	-	-
+ABC import I	ABC import I	2r6g_F	2.8	alpha	F;G	F	None	None	None	None	None	None	None	Maltose transporter	[14,20]	TN	TN	TN	-	-
+ABC import II	ABC import II	1l7v_A	3.2	alpha	A;B	A	2	Antiparallel	Closed	Internal	Yes	(A_47-166,A_229-324)	Yes	BtuCD transporter	[21,22]	complete	complete	FN	-	-
+SR-II	Sensory rhodopsin II	1h2s_A	1.93	alpha	A;B;C;D	A;B	None	None	None	None	None	None	None	Sensory rhodopsin II transducer complex	[23]	TN	TN	TN	-	-
+SR-II	Sensory rhodopsin II	1h2s_B	1.93	alpha	A;B;C;D	A;B	None	None	None	None	None	None	None	Sensory rhodopsin II transducer complex	[23]	TN	TN	TN	-	-
+CDF	Cation diffusion facilitator	3h90_A	2.9	alpha	A;C	A	2	Antiparallel	Closed	Internal	Yes	(A_10-113,A_114-242)	No	Zinc transporter YiiP	[24]	complete	complete	FN	-	-
+SemiSWEET	SemiSWEET	4qnc_A	2.39	alpha	A;B	A	None	None	None	None	None	None	None	SemiSWEET	[25]	TN	TN	TN	-	-
+APC	Amino acid/polyamine/organocation superfamily	3ncy_A	3.2	alpha	A;B	A	2	Antiparallel	Closed	Internal	Yes	(A_12-165,A_188-375)	Yes	Arginine agmatine antiporter (AdiC)	[26]	partial	complete	FN	-	-
+APC	Amino acid/polyamine/organocation superfamily	2a65_A	1.65	alpha	A	A	2	Antiparallel	Closed	Internal	Yes	(A_10-234,A_242-443)	Yes	LeuT	[27]	complete	complete	FN	-	-
+CLC	Chloride channel family	1ots_A	2.51	alpha	A;B	A	2	Antiparallel	Closed	Internal	Yes	(A_30-239,A_246-446)	No	Chloride channel	[28]	complete	complete	complete	-	-
+DASS	Divalent anion:Na+ symporter	4f35_C	3.2	alpha	C;D	C	2	Antiparallel	Closed	Internal	Yes	(C_46-240,C_259-460)	Yes	Dicarboxylate/sodium symporter	[29]	partial	partial	partial	-	-
+EIIC	Subunit C of the phosphoenolpyruvateâ€“carbohydrate phosphotransferase transport system	3qnq_A	3.3	alpha	A;B	A	None	None	None	None	None	None	None	Phosphorylation-coupled saccharide transporter ChbC	[30]	TN	TN	TN	-	-
+MgtE	Mg2+ channels	2yvx_A	3.5	alpha	A;B	A	None	None	None	None	None	None	None	magnesium transporter MgtE	[31]	TN	TN	TN	-	-
+Complex II (SQR)	Complex II (SQR)	1zoy_C	2.4	alpha	C;D	C;D	None	None	None	None	None	None	None	Complex II	[32]	TN	TN	TN	-	-
+Complex II (SQR)	Complex II (SQR)	1zoy_D	2.4	alpha	C;D	C;D	None	None	None	None	None	None	None	Complex II	[32]	TN	TN	TN	-	-
+NMDAR	N -Methyl-d-Aspartate receptor	4pe5_A	3.96	alpha	A;B;C;D	A	None	None	None	None	None	None	None	GluN1a/GluN2B NMDA receptor ion channel	[33]	TN	TN	TN	-	-
+UbiA	Prenyl-transferase family	4tq3_A	2.41	alpha	A	A	2	Parallel	Closed	Internal	Yes	(A_15-143,A_144-267)	No	UbiA homolog	[35]	complete	complete	FN	-	-
+BR	Bacteriorhodopsin	1py6_A	1.8	alpha	A	A	2	Parallel	Closed	Internal	Yes	(A_5-101,A_130-230)	No	Bacteriorhodopsin	[16]	FN	complete	FN	-	-
+MATE	Multidrug and toxin extrusion transporter	5c6p_A	3.0	alpha	A	A	2	Parallel	Closed	Internal	Yes	(A_19-221,A_240-445)	No	Na+/drug antiporter NorM	[36]	complete	complete	complete	-	-
+SWEET	SWEET	4qtn_A	2.8	alpha	A;B;C	A	2;2;2	Parallel;Antiparallel;Antiparallel	Closed;Closed;Closed	Internal;Internal;Internal	Yes;Yes;Yes	(A_40-108,A_157-236);(A_63-108,A_180-236);(A_40-82,A_180-202)	No;No;No	Vitamin B3 transporter PnuC	[37]	complete;FN;FN	complete;FN;FN	complete;FN;FN	-	-
+RND	Resistance-nodulation-cell division transporter	4dx5_A	1.8	alpha	A;B;C	A	2	Parallel	Closed	Internal	Yes	(A_1-498,A_530-1031)	No	Multidrug transporter AcrB	[38]	complete	complete	partial	-	-
+SMR	Small multidrug resistance	3b5d_A	3.8	alpha	A;B	A	None	None	None	None	None	None	None	EmrE	[39]	TN	TN	TN	-	-
+CaCA	Ca2+:cation antiporter family	3v5u_A	1.9	alpha	A	A	2	Antiparallel	Closed	Internal	Yes	(A_1-146,A_158-303)	Yes	Sodium/Calcium Exchanger	[40]	complete	complete	complete	-	-
+CNT	Concentrative nucleoside transporter	3tij_A	2.44	alpha	A;B;C	A	2	Antiparallel	Closed	Internal	Yes	(A_96-221,A_254-416)	Yes	Concentrative nucleoside transporter	[41]	complete	complete	FN	-	-
+EAAT	Excitatory amino acid transporter	2nwx_A	3.29	alpha	A;B;C	A	2;2	Antiparallel;Antiparallel	Closed;Closed	Internal;Internal	Yes;Yes	(A_12-104,A_147-255);(A_256-329,A_333-414)	Yes;Yes	Proton glutamate symport protein	[42,43]	FN;FN	complete;complete	FN;FN	-	-
+NCS2	Nucleobase:cation symporter-2	3qe7_A	2.78	alpha	A	A	2	Antiparallel	Closed	Internal	Yes	(A_8-202,A_221-410)	Yes	Uracil Transporter-UraA	[44]	complete	complete	complete	-	-
+NPA1	Na+/H+ antiporter 1	1zcd_A	3.45	alpha	A	A	2	Antiparallel	Closed	Internal	Yes	(A_12-175,A_223-382)	Yes	Sodium/proton antiporter, NapA	[45]	complete	complete	partial	-	-
+Amt	Ammonia channels	1u7g_A	1.4	alpha	A;B;C	A	2	Antiparallel	Closed	Internal	Yes	(A_9-182,A_193-332)	No	Ammonia Channel AmtB	[14,46]	complete	complete	partial	-	-
+FNT	Formate/nitrite transporter	3kcu_A	2.24	alpha	A;B;C;D;E	A	2	Antiparallel	Closed	Internal	Yes	(A_29-142,A_159-280)	No	Formate Channel FocA	[47]	complete	complete	FN	-	-
+MIP	Major intrinsic proteins	1j4n_A	2.2	alpha	A;B;C;D	A	2	Antiparallel	Closed	Internal	Yes	(A_1-120,A_130-237)	No	Aquaporin-1	[48]	complete	complete	complete	-	-
+SecY	Protein-conducting channel	1rh5_A	3.2	alpha	A;B;C	A	2	Antiparallel	Closed	Internal	Yes	(A_19-200,A_205-420)	No	Protein-conducting channel	[49]	complete	complete	FN	-	-
+TMBIM	Transmembrane Bax inhibitor motif family	4pgr_A	1.95	alpha	A	A	2	Antiparallel	Closed	Internal	Yes	(A_6-89,A_90-181)	No	YetJ	[50]	FN	complete	FN	-	-
+UT	Urea transporter	3k3f_A	2.3	alpha	A;B;C	A	2	Antiparallel	Closed	Internal	Yes	(A_8-154,A_171-318)	No	Urea transporter	[51]	partial	complete	complete	-	-
+Mrp	Na+/H+ antiporter related to the transport domains in complex I of the respiratory chain	4hea_A	3.3	alpha	A;H;J;K;L;M;N	A;H;J;K;L;M	None	None	None	None	None	None	None	Respiratory complex I	[52,53]	TN	TN	TN	-	-
+Mrp	Na+/H+ antiporter related to the transport domains in complex I of the respiratory chain	4hea_H	3.3	alpha	A;H;J;K;L;M;N	A;H;J;K;L;M	None	None	None	None	None	None	None	Respiratory complex I	[52,53]	TN	TN	TN	-	-
+Mrp	Na+/H+ antiporter related to the transport domains in complex I of the respiratory chain	4hea_J	3.3	alpha	A;H;J;K;L;M;N	A;H;J;K;L;M	None	None	None	None	None	None	None	Respiratory complex I	[52,53]	TN	TN	TN	-	-
+Mrp	Na+/H+ antiporter related to the transport domains in complex I of the respiratory chain	4hea_K	3.3	alpha	A;H;J;K;L;M;N	A;H;J;K;L;M	None	None	None	None	None	None	None	Respiratory complex I	[52,53]	TN	TN	TN	-	-
+Mrp	Na+/H+ antiporter related to the transport domains in complex I of the respiratory chain	4hea_L	3.3	alpha	A;H;J;K;L;M;N	A;H;J;K;L;M	2	Antiparallel	Open	Internal	Yes	(L_97-263,L_264-429)	No	Respiratory complex I	[52,53]	FN	complete	FN	-	-
+Mrp	Na+/H+ antiporter related to the transport domains in complex I of the respiratory chain	4hea_M	3.3	alpha	A;H;J;K;L;M;N	A;H;J;K;L;M	2	Antiparallel	Open	Internal	Yes	(M_92-251,M_258-416)	No	Respiratory complex I	[52,53]	FN	complete	FN	-	-
+MFS	Major facilitator superfamily	1pv6_A	3.5	alpha	A	A	2;2;2	Parallel;Antiparallel;Antiparallel	Closed;Closed;Closed	Internal;Internal;Internal	Yes;Yes;Yes	(A_6-187,A_219-399);(A_6-94,A_101-187);(A_219-309,A_310-399)	No;Yes;Yes	Lactose permease	[54]	complete;complete;complete	complete;complete;complete	FN;FN;FN	-	-
+DgkA	Diacylglycerol kinase A	3ze5_A	3.1	alpha	A;B;C	A	None	None	None	None	None	None	None	Diacylglycerol kinase A	[55]	TN	TN	TN	-	-
+MAPEG	Membrane-associated proteins in eicosanoid and glutathione mechanism	3pcv_A	1.9	alpha	A;B;C	A	None	None	None	None	None	None	None	Leukotriene C4 synthase	[56]	TN	TN	TN	-	-
+plant LHC2	plant light-harvesting complex II	4lcz_A	2.6	alpha	A;B;C	A	2	Parallel	Closed	Internal	Yes	(A_36-112,A_151-221)	No	Major light-harvesting complex	[57]	complete	FN	FN	-	-
+pMMO	Particulate methane monooxygenase	3rgb_B	2.8	alpha	A;B;C;E;F;G;I;J;K	B;C	None	None	None	None	None	None	None	Particulate methane monooxygenase	[58]	TN	TN	TN	-	-
+pMMO	Particulate methane monooxygenase	3rgb_C	2.8	alpha	A;B;C;E;F;G;I;J;K	B;C	None	None	None	None	None	None	None	Particulate methane monooxygenase	[58]	TN	TN	TN	-	-
+BCCT	Betaine/carnitine/choline transporters	4c7r_A	2.7	alpha	A;B;C	A	2	Antiparallel	Closed	Internal	Yes	(A_134-327,A_358-546)	Yes	Betaine transporter BetP	[59]	complete	complete	partial	-	-
+DEG-eNaC	Degenerin epithelial sodium channel family	2qts_A	1.9	alpha	A;B;C	A	None	None	None	None	None	None	None	Acid-sensing ion channel 1	[60]	TN	TN	TN	-	-
+P2XR	P2X receptor channel	3h9v_A	3.1	alpha	A;B;C	A	None	None	None	None	None	None	None	ATP-gated P2X4 ion channel	[61]	TN	TN	TN	-	-
+SLAC	Slow anion channel	3m72_A	1.7	alpha	A;B;C	A	5	Parallel	Closed	Internal	Yes	(A_7-70,A_71-128,A_133-189,A_191-250,A_251-311)	No	TehA anion channel	[63]	complete	complete	complete	-	-
+M-PPase	Membrane pyrophosphatase	4av3_A	2.6	alpha	A;B	A	3	Parallel	Closed	Internal	Yes	(A_72-254,A_358-514,A_540-714)	No	Sodium pumping membrane integral pyrophosphatase	[65]	FN	complete	partial	-	-
+MCP	Mitochondrial carrier proteins	1okc_A	2.2	alpha	A	A	3	Parallel	Closed	Internal	Yes	(A_2-92,A_107-195,A_207-292)	No	Mitochondrial ADP/ATP carrier	[66]	complete	complete	complete	-	-
+UreI	Proton-gated inner-membrane urea channel	3ux4_A	3.26	alpha	A;B;C;D;E;F	A	3	Parallel	Closed	Internal	Yes	(A_1-49,A_74-124,A_139-191)	No	Urea channel	[67]	complete	complete	complete	-	-
+Nav	Voltage-gated sodium channel	3rvy_A	2.7	alpha	A;B;C;D	A	None	None	None	None	None	None	None	NavAb voltage-gated sodium channel	[70]	TN	TN	TN	-	-
+SKT	Superfamily of K+ transporters	4j7c_I	3.5	alpha	I;J	I	4	Parallel	Closed	Internal	Yes	(I_15-102,I_107-219,I_226-331,I_344-425)	No	KtrAB potassium transporter	[71]	FN	FN	partial	-	-
+pLGICS	Pentameric ligand-gated ion channels	2vl0_A	3.3	alpha	A;B;C;D;E	A	None	None	None	None	None	None	None	Proton-gated ion channel	[73]	TN	TN	TN	-	-
+Bestrophin	Bestrophin	4wd8_A	2.3	alpha	A;B;C;D;E	A	None	None	None	None	None	None	None	Bacterial Bestrophin homolog	[75]	TN	TN	TN	-	-
+Cx	Connexin	2zw3_A	3.5	alpha	A;B;C;D;E;F	A	2	Parallel	Closed	Internal	Yes	(A_14-95,A_129-213)	No	Connexin 26	[77]	complete	complete	FN	-	-
+MscS	Small conductance mechanosensitive ion channel	5aji_A	2.99	alpha	A;B;C;D;E;F;G	A	None	None	None	None	None	None	None	Mechanosensitive Channel of Small Conductance (MscS)	[78]	TN	TN	TN	-	-
+LH1	Light harvesting complex 1	3wmm_1	3.01	alpha	0;1;2;3;4;5;6;7;8;9;A;B;C;D;E;F;G;H;I;J;K;L;M;N;O;P;Q;R;S;T;U;V;W;X;Y;Z	1	None	None	None	None	None	None	None	LH1-RC complex	[81]	TN	TN	TN	-	-
+F-type ATPase	F-type ATPase	1yce_A	2.4	alpha	A;B;C;D;E;F;G;H;I;J;K	A	None	None	None	None	None	None	None	rotor ring of F-type Na+-ATPase	[82]	TN	TN	TN	-	-
+V-type ATPase	V-type ATPase	2bl2_A	2.1	alpha	A;B;C;D;E;F;G;H;I;J	A	2	Parallel	Closed	Internal	Yes	(A_9-80,A_85-156)	No	V-type sodium ATPase	[16,82]	FN	FN	FN	-	-
+Cytolysin	Cytolysin	2wcd_A	3.29	alpha	A;B;C;D;E;F;G;H;I;J;K;L	A	None	None	None	None	None	None	None	Cytolysin A pore	[83]	TN	TN	TN	-	-
+OMA	Outer-membrane auxiliary proteins	2j58_A	2.25	alpha	A;B;C;D;E;F;G;H	A	None	None	None	None	None	None	None	Outer membrane lipoprotein Wza	[84]	TN	TN	TN	-	-
+PS-I	Photosystem I	4y28_A	2.8	alpha	1;2;3;4;A;B;F;G;H;I;J;K;L	A;G;H;I;J;K;L	3	Parallel	Closed	Internal	No	(A_74-188,A_192-325,A_347-416)	No	Plant photosystem I	[85,86]	FN	complete	FN	-	-
+PS-I	Photosystem I	4y28_G	2.8	alpha	1;2;3;4;A;B;F;G;H;I;J;K;L	A;G;H;I;J;K;L	None	None	None	None	None	None	None	Plant photosystem I	[85,86]	TN	TN	TN	-	-
+PS-I	Photosystem I	4y28_H	2.8	alpha	1;2;3;4;A;B;F;G;H;I;J;K;L	A;G;H;I;J;K;L	None	None	None	None	None	None	None	Plant photosystem I	[85,86]	TN	TN	TN	-	-
+PS-I	Photosystem I	4y28_I	2.8	alpha	1;2;3;4;A;B;F;G;H;I;J;K;L	A;G;H;I;J;K;L	None	None	None	None	None	None	None	Plant photosystem I	[85,86]	TN	TN	TN	-	-
+PS-I	Photosystem I	4y28_J	2.8	alpha	1;2;3;4;A;B;F;G;H;I;J;K;L	A;G;H;I;J;K;L	None	None	None	None	None	None	None	Plant photosystem I	[85,86]	TN	TN	TN	-	-
+PS-I	Photosystem I	4y28_K	2.8	alpha	1;2;3;4;A;B;F;G;H;I;J;K;L	A;G;H;I;J;K;L	None	None	None	None	None	None	None	Plant photosystem I	[85,86]	TN	TN	TN	-	-
+PS-I	Photosystem I	4y28_L	2.8	alpha	1;2;3;4;A;B;F;G;H;I;J;K;L	A;G;H;I;J;K;L	None	None	None	None	None	None	None	Plant photosystem I	[85,86]	TN	TN	TN	-	-
+Complex II (QFR)	Complex II (Quinol-Fumarate Reductase)	2bs2_C	1.78	alpha	C;F	C	None	None	None	None	None	None	None	Quinol-Fumarate Reductase	[80]	TN	TN	TN	-	-
+4-TM oxidoreductases	4-TM oxidoreductases	1kqf_C	1.6	alpha	B;C;E;F;H;I	C	2	Parallel	Closed	Internal	Yes	(C_8-87,C_110-186)	No	Formate dehydrogenase	[16,87]	partial	complete	FN	-	-
+Complex II (QFR)	Fumarate reductase	3p4p_C	2.8	alpha	C;D	C;D	None	None	None	None	None	None	None	Menaquinol:fumarate oxidoreductase in complex with fumarate	[88]	TN	TN	TN	-	-
+Complex II (QFR)	Fumarate reductase	3p4p_D	2.8	alpha	C;D	C;D	None	None	None	None	None	None	None	Menaquinol:fumarate oxidoreductase in complex with fumarate	[88]	TN	TN	TN	-	-
+Nitrate Reductase	Nitrate Reductase	1q16_C	1.9	alpha	C	C	None	None	None	None	Yes	None	None	Nitrate Reductase A	[89]	TN	TN	TN	-	-

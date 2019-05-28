@@ -53,5 +53,6 @@ The PDB files of the structures are included in MemSTATS_pdbs.tar.gz. The files 
 
 •	there is only one 'altloc' allowed to avoid ambiguity in individual algorithms processing
 
-•	the only HETATM entries in the file indicate the membrane boundaries as determined by [PPM](https://dx.doi.org/10.1093%2Fnar%2Fgkr703)
+•	the only HETATM entries in the file indicate the membrane boundaries as determined by [PPM](https://dx.doi.org/10.1093%2Fnar%2Fgkr703); HETATM entries of MSE residues have been renamed to ATOM entries
+
 

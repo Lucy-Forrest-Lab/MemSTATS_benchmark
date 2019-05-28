@@ -1,0 +1,12 @@
+# TN = True negative, FN = false negative, complete = method detected the entire range of the symmetric repeats, partial = method detected only part of the repeats
+Fold-Abbreviation	Fold-Name	PDB	Resolution	Secondary-Structure-Composition	TM-Chains	Structurally-Unique-Chains	Order	Repeat-Topology	Closed/Open-Symmetry-Group	Internal/Quaternary	Described	Repeats	Interdigitating	Structure-Title	Reference	CE-Symm	EncoMPASS	SymD-8	AnAnaS	BioJava
+OMP	Outer-membrane β-barrel protein	1af6	2.4	beta	A;B;C	A	3	Parallel	Closed	Quaternary	Yes	(A_1-421,B_1-421,C_1-421)	No	Maltoporin	[62]	complete	FN	FN	complete	complete
+β-PFTs	β-pore-forming toxins	7ahl	1.9	beta	A;B;C;D;E;F;G	A	7	Parallel	Closed	Quaternary	Yes	(A_1-293,B_1-293,C_1-293,D_1-293,E_1-293,F_1-293,G_1-293)	No	Alpha-hemolysin	[79]	FN	FN	complete	complete	complete
+Outer-membrane efflux proteins	Outer-membrane efflux proteins	1ek9	2.1	beta	A;B;C	A	3	Parallel	Closed	Quaternary	Yes	(A_1-428,B_1-428,C_1-428)	No	TolC	[93]	complete	FN	complete	complete	complete
+AT-2	Autotransporter-2	2gr7	2.3	beta	A;B;C	A	3	Parallel	Closed	Quaternary	Yes	(A_998-1098,B_998-1098,C_998-1098)	No	Autotransporter Hia	[98]	complete	FN	complete	complete	complete
+Eukaryotic β-PFTs	Eukaryotic β-pore-forming toxins	3w9t	2.9	beta	A;B;C;D;E;F;G	A	7	Parallel	Closed	Quaternary	Yes	(A_2-432,B_2-432,C_2-432,D_2-432,E_2-432,F_2-432,G_2-432)	No	Hemolytic lectin CEL-III	[101]	FN	FN	complete	complete	complete
+MBP	Mycobacterial porin	1uun	2.5	beta	A;B;C;D;E;F;G;H	A	8	Parallel	Closed	Quaternary	Yes	(A_1-184,B_1-184,E_1-184,F_1-184,H_1-184,G_1-184,D_1-184,C_1-184)	No	MspA	[102]	FN	FN	complete	complete	complete
+POP	Pseudomonas outer membrane porins	2o4v	1.94	beta	A;B;C	A	3	Parallel	Closed	Quaternary	Yes	(A_1-411,B_1-411,C_1-411)	No	OprP	[103]	complete	FN	complete	complete	complete
+PorCa Porin	PorCa Porin	1prn	1.96	beta	A;B;C	A	3	Parallel	Closed	Quaternary	Yes	(A_1-289,B_1-289,C_1-289)	No	Porin from Rhodopseudomonas blastica	[104]	partial	FN	complete	complete	complete
+Lysenin	Lysenin	5ec5	3.1	beta	A;B;C;D;E;F;G;H;I	A	9	Parallel	Closed	Quaternary	Yes	(A_8-297,B_9-297,C_8-297,D_7-297,E_9-297,F_8-297,G_8-297,H_9-297,I_9-297)	No	Lysenin	[105]	FN	FN	complete	complete	complete
+Secretion channel	Secretion channel	3x2r	2.9	beta	A;B;C;D;E;F;G;H;I	A	9	Parallel	Closed	Quaternary	Yes	(A_43-252,B_48-251,E_41-252,H_48-252,F_48-250,D_43-252,C_41-252,G_49-252,I_48-251)	No	Bacterial amyloid secretion channel CsgG	[111]	FN	FN	complete	complete	complete

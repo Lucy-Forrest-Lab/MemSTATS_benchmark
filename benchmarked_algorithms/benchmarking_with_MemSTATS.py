@@ -280,18 +280,18 @@ def read_transfer_symmetry(cesymm_out_dir,pdb):
 
     return transfer_symm
 
-def writeout_benchmark_results(benchmark_dic, out_name, bs, zScoreThreshold, rcsb_file=''):
+def writeout_benchmark_results(benchmark_dic, out_name, bs, zScoreThreshold, quatsymm_file=''):
     out = open(out_name, 'w')
     out.write('# TN = True negative, FN = false negative, complete = method detected the entire range of the symmetric repeats, partial = method detected only part of the repeats\n')
     bs.seek(0)
-    if rcsb_file != '':
-        rcsb_data = pkl.load(open(rcsb_file, 'rb'))
+    if quatsymm_file != '':
+        quatsymm_data = pkl.load(open(quatsymm_file, 'rb'))
     for line in bs:
         fields = line.split('\t')
         inputf = fields[2]
         pdb = fields[2][0:4]
         if pdb == 'PDB':
-            out.write(line.strip() + '\t' + 'CE-Symm' + '\t' + 'EncoMPASS'+ '\t' + 'SymD' + '-' + str(zScoreThreshold) + '\t' + 'AnAnaS' + '\t' + 'BioJava' + '\n')
+            out.write(line.strip() + '\t' + 'CE-Symm' + '\t' + 'EncoMPASS'+ '\t' + 'SymD' + '-' + str(zScoreThreshold) + '\t' + 'AnAnaS' + '\t' + 'QuatSymm' + '\n')
             col_names = {}
             for i in range(len(fields)):
                 col_names[fields[i]] = i
@@ -302,7 +302,7 @@ def writeout_benchmark_results(benchmark_dic, out_name, bs, zScoreThreshold, rcs
             encompass = []
             symd = []
             ananas = []
-            rcsb = []
+            quatsymm = []
             for rep in repeats:
                 for b in benchmark_dic[inputf]:
                     if b['repeats_text'] == rep:
@@ -311,10 +311,10 @@ def writeout_benchmark_results(benchmark_dic, out_name, bs, zScoreThreshold, rcs
                         symd.append(b['repeat_coverage']['SymD'])
                         if 'AnAnaS' in b['repeat_coverage']:
                             ananas.append(b['repeat_coverage']['AnAnaS'])
-                if rcsb_file != '':
-                    for b in rcsb_data[inputf]:
+                if quatsymm_file != '':
+                    for b in quatsymm_data[inputf]:
                         if b['repeats_text'] == rep or (rep == 'None' and b['repeats_text'][0] == rep):
-                            rcsb.append(b['biojava'])
+                            quatsymm.append(b['quatsymm'])
 
             if len(cesymm)==0:
                 cesymm.append('TN')
@@ -322,12 +322,12 @@ def writeout_benchmark_results(benchmark_dic, out_name, bs, zScoreThreshold, rcs
                 symd.append('TN')
             if len(encompass)==0:
                 encompass.append('TN')
-            if len(ananas)==0 and rcsb_file != '':
+            if len(ananas)==0 and quatsymm_file != '':
                 ananas.append('TN')
-            elif len(ananas)==0 and rcsb_file == '':
+            elif len(ananas)==0 and quatsymm_file == '':
                 ananas.append('-')
-                rcsb.append('-')
-            line2 = line2 + '\t' + ';'.join(cesymm) + '\t' + ';'.join(encompass)+ '\t' + ';'.join(symd) + '\t' + ';'.join(ananas) + '\t' + ';'.join(rcsb) + '\n'
+                quatsymm.append('-')
+            line2 = line2 + '\t' + ';'.join(cesymm) + '\t' + ';'.join(encompass)+ '\t' + ';'.join(symd) + '\t' + ';'.join(ananas) + '\t' + ';'.join(quatsymm) + '\n'
             out.write(line2)
     out.close()
     return
@@ -675,7 +675,7 @@ def count_internal_symmetry(bs, tm_archive, analysis_whole_file, analysis_chain_
     return counters
 
 
-def count_quat_symmetry(bs, tm_archive, analysis_whole_file, out, omit_type,pdb_suff, tab, rcsb_file):
+def count_quat_symmetry(bs, tm_archive, analysis_whole_file, out, omit_type,pdb_suff, tab, quatsymm_file):
     print("####### Counting quaternary symmetry excluding " + omit_type + " proteins")
     out.write("####### Counting quaternary symmetry excluding " + omit_type + " proteins" + "\n")
 
@@ -883,7 +883,7 @@ def count_quat_symmetry(bs, tm_archive, analysis_whole_file, out, omit_type,pdb_
         type_name = 'alpha'
     else:
         type_name = 'beta'
-    writeout_benchmark_results(benchmark_dic, out_dir + 'MemSTATS-' + tab + '_' + type_name +'_quat_zscore' + str(zScoreThreshold) +'_' + str(datetime.date.today()) + '_results.tsv', bs, zScoreThreshold, rcsb_file)
+    writeout_benchmark_results(benchmark_dic, out_dir + 'MemSTATS-' + tab + '_' + type_name +'_quat_zscore' + str(zScoreThreshold) +'_' + str(datetime.date.today()) + '_results.tsv', bs, zScoreThreshold, quatsymm_file)
     return counters
 
 ########## Main #################
@@ -905,16 +905,16 @@ if __name__ == "__main__":
     ananas_out_dir = symmetry_dir + 'ananas/'
     analysis_whole_file = open(symmetry_dir + 'encompass/analysis_symmetries_whole.txt', 'r')
     analysis_chain_file = open(symmetry_dir + 'encompass/analysis_symmetries_chains.txt', 'r')
-    rcsb_results = symmetry_dir + 'biojava/memstats_with_biojava.pkl'
-    tm_archive = pkl.load(open('.tm_archive.pkl', 'rb')) # includes information extracted from inserting proteins in the membrane with OPM
-    pdb_dir = 'MemSTATS_pdbs/'
+    quatsymm_results = symmetry_dir + 'quatsymm/memstats_with_quatsymm.pkl'
+    tm_archive = pkl.load(open('.tm_archive.pkl', 'rb')) # includessymm information extracted from inserting proteins in the membrane with OPM
+    pdb_dir = '../MemSTATS_pdbs/'
     pdb_suff = '_sb' # coordinate files are named XXXX + pdb_suff + '.pdb', eg. '1okc_sb.pdb'
     out_dir = os.getcwd() + '/results/'
     if os.path.isdir(out_dir) == False:
         os.mkdir(out_dir)
 
     # Define SymD significance threshold. Results with higher z-score will be considered significant.
-    zScoreThreshold = 8 # authors recommend 8 or 10
+    zScoreThreshold = 10 # authors recommend 8 or 10
 
     # Define results file with overall performance statistics
     out_file = open(out_dir + "MemSTATS-" + tab + "_stats_zscore" + str(zScoreThreshold) + '_' + str(datetime.date.today()) + ".txt", "w")
@@ -926,7 +926,7 @@ if __name__ == "__main__":
     types = ['beta', 'alpha']
     for i,omit_type in enumerate(types):
         results[types[(i + 1) % len(types)]] = {}
-        results[types[(i + 1) % len(types)]]['quaternary'] = count_quat_symmetry(bs_quat, tm_archive, analysis_whole_file, out_file, omit_type, pdb_suff, tab, rcsb_results)
+        results[types[(i + 1) % len(types)]]['quaternary'] = count_quat_symmetry(bs_quat, tm_archive, analysis_whole_file, out_file, omit_type, pdb_suff, tab, quatsymm_results)
         results[types[(i + 1) % len(types)]]['internal'] = count_internal_symmetry(bs_int, tm_archive, analysis_whole_file, analysis_chain_file, out_file, omit_type, 'no', pdb_suff, tab)
         results[types[(i + 1) % len(types)]]['internal with transfer'] = count_internal_symmetry(bs_int, tm_archive, analysis_whole_file, analysis_chain_file, out_file, omit_type, 'yes',pdb_suff, tab)
 

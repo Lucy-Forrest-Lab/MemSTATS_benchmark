@@ -1,0 +1,144 @@
+####### Counting quaternary symmetry excluding beta proteins
+Number of benchmark symmetries: 73: 4hyg, 4hg6, 4u1w, 4u1w, 4or2, 1bcc, 1occ, 5eh4, 4pj0, 2hyd, 2onk, 2r6g, 1l7v, 1h2s, 3h90, 4qnc, 3ncy, 1ots, 4f35, 3qnq, 2yvx, 1zoy, 4pe5, 4pe5, 1prc, 4qtn, 4dx5, 3b5d, 3tij, 2nwx, 1u7g, 3kcu, 1j4n, 1rh5, 3k3f, 4hea, 4hea, 3ze5, 3pcv, 4lcz, 3rgb, 4c7r, 2qts, 3h9v, 3m72, 3o0r, 4av3, 3ux4, 1k4c, 3lbw, 3rvy, 4j7c, 2b6p, 2vl0, 4i0u, 4wd8, 5kxi, 2zw3, 5aji, 1kzu, 1lgh, 3wmm, 1yce, 2x2v, 2wie, 2bl2, 2wcd, 2j58, 4y28, 4y28, 2bs2, 1kqf, 3p4p
+CE-Symm Correct: 52
+CE-Symm Completely Correct: 40
+CE-Symm True Positives: 49
+CE-Symm False Positives: 1
+CE-Symm True Negatives: 3
+CE-Symm False Negatives: 21: 4u1w, 4u1w, 1occ, 4pe5, 4dx5, 1j4n, 4hea, 4hea, 3ux4, 1k4c, 3lbw, 2b6p, 4i0u, 4wd8, 1lgh, 3wmm, 1yce, 2x2v, 2bl2, 2j58, 4y28
+EncoMPASS Correct: 65
+EncoMPASS Completely Correct: 64
+EncoMPASS True Positives: 62
+EncoMPASS False Positives: 0
+EncoMPASS True Negatives: 3
+EncoMPASS False Negatives: 8: 4u1w, 4u1w, 5eh4, 4pe5, 4hea, 3lbw, 2j58, 4y28
+SymD z-score Threshold: 10
+SymD Correct: 52
+SymD Completely Correct: 50
+SymD True Positives: 49
+SymD False Positives: 6
+SymD True Negatives: 3
+SymD False Negatives: 21: 4u1w, 5eh4, 4qnc, 1ots, 1zoy, 4pe5, 3b5d, 1j4n, 4hea, 4hea, 3rgb, 3lbw, 2b6p, 1kzu, 1lgh, 3wmm, 2bl2, 2j58, 4y28, 4y28, 3p4p
+AnAnaS Correct: 63
+AnAnaS Completely Correct: 62
+AnAnaS True Positives: 60
+AnAnaS False Positives: 0
+AnAnaS True Negatives: 3
+AnAnaS False Negatives: 10: 4u1w, 2r6g, 4pe5, 1prc, 4hea, 4hea, 3wmm, 4y28, 4y28, 3p4p
+
+####### Counting internal symmetry excluding beta proteins. Inferred symmetries considered: no ########
+Number of benchmark symmetries: 120
+CE-Symm Correct: 98
+CE-Symm Completely Correct: 94
+CE-Symm True Positives: 31
+CE-Symm False Positives: 18
+CE-Symm True Negatives: 67
+CE-Symm False Negatives: 17
+EncoMPASS Correct: 111
+EncoMPASS Completely Correct: 110
+EncoMPASS True Positives: 39
+EncoMPASS False Positives: 2
+EncoMPASS True Negatives: 72
+EncoMPASS False Negatives: 9
+SymD z-score Threshold: 10
+SymD Correct: 83
+SymD Completely Correct: 76
+SymD True Positives: 19
+SymD False Positives: 9
+SymD True Negatives: 64
+SymD False Negatives: 29
+
+####### Counting internal symmetry excluding beta proteins. Inferred symmetries considered: yes ########
+Number of benchmark symmetries: 120
+CE-Symm Correct: 98
+CE-Symm Completely Correct: 94
+CE-Symm True Positives: 31
+CE-Symm False Positives: 18
+CE-Symm True Negatives: 67
+CE-Symm False Negatives: 17
+EncoMPASS Correct: 110
+EncoMPASS Completely Correct: 109
+EncoMPASS True Positives: 42
+EncoMPASS False Positives: 6
+EncoMPASS True Negatives: 68
+EncoMPASS False Negatives: 6
+SymD z-score Threshold: 10
+SymD Correct: 83
+SymD Completely Correct: 76
+SymD True Positives: 19
+SymD False Positives: 9
+SymD True Negatives: 64
+SymD False Negatives: 29
+
+####### Counting quaternary symmetry excluding alpha proteins
+Number of benchmark symmetries: 10: 1af6, 7ahl, 1ek9, 2gr7, 3w9t, 1uun, 2o4v, 1prn, 5ec5, 3x2r
+CE-Symm Correct: 5
+CE-Symm Completely Correct: 4
+CE-Symm True Positives: 5
+CE-Symm False Positives: 1
+CE-Symm True Negatives: 0
+CE-Symm False Negatives: 5: 7ahl, 3w9t, 1uun, 5ec5, 3x2r
+EncoMPASS Correct: 0
+EncoMPASS Completely Correct: 0
+EncoMPASS True Positives: 0
+EncoMPASS False Positives: 0
+EncoMPASS True Negatives: 0
+EncoMPASS False Negatives: 10: 1af6, 7ahl, 1ek9, 2gr7, 3w9t, 1uun, 2o4v, 1prn, 5ec5, 3x2r
+SymD z-score Threshold: 10
+SymD Correct: 9
+SymD Completely Correct: 9
+SymD True Positives: 9
+SymD False Positives: 1
+SymD True Negatives: 0
+SymD False Negatives: 1: 1af6
+AnAnaS Correct: 10
+AnAnaS Completely Correct: 10
+AnAnaS True Positives: 10
+AnAnaS False Positives: 0
+AnAnaS True Negatives: 0
+AnAnaS False Negatives: 0: 
+
+####### Counting internal symmetry excluding alpha proteins. Inferred symmetries considered: no ########
+Number of benchmark symmetries: 24
+CE-Symm Correct: 12
+CE-Symm Completely Correct: 12
+CE-Symm True Positives: 5
+CE-Symm False Positives: 3
+CE-Symm True Negatives: 7
+CE-Symm False Negatives: 12
+EncoMPASS Correct: 7
+EncoMPASS Completely Correct: 7
+EncoMPASS True Positives: 0
+EncoMPASS False Positives: 0
+EncoMPASS True Negatives: 7
+EncoMPASS False Negatives: 17
+SymD z-score Threshold: 10
+SymD Correct: 6
+SymD Completely Correct: 6
+SymD True Positives: 2
+SymD False Positives: 15
+SymD True Negatives: 4
+SymD False Negatives: 15
+
+####### Counting internal symmetry excluding alpha proteins. Inferred symmetries considered: yes ########
+Number of benchmark symmetries: 24
+CE-Symm Correct: 12
+CE-Symm Completely Correct: 12
+CE-Symm True Positives: 5
+CE-Symm False Positives: 3
+CE-Symm True Negatives: 7
+CE-Symm False Negatives: 12
+EncoMPASS Correct: 7
+EncoMPASS Completely Correct: 7
+EncoMPASS True Positives: 0
+EncoMPASS False Positives: 0
+EncoMPASS True Negatives: 7
+EncoMPASS False Negatives: 17
+SymD z-score Threshold: 10
+SymD Correct: 6
+SymD Completely Correct: 6
+SymD True Positives: 2
+SymD False Positives: 15
+SymD True Negatives: 4
+SymD False Negatives: 15
+

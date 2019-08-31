@@ -1,10 +1,15 @@
-# Symmetry-detection algorithms tested on the structures in the MemSTATS dataset
+# Benchmarking CE-Symm 2.0, SymD 1.61, AnAnaS 0.8, EncoMPASS and QuatSymm
 ---
 
-The folder **symmetry/** contains the raw outputs of processing the pdb files in the MemSTATS dataset symmetry detection algorithms (SymD 1.61, CE-Symm 2.0, AnAnaS 0.8). In the case of QuatSymm (also referred to as BioJava/RCSB), the data has been manually extracted from the PDB database.
+To benchmark the algorithms, download the MemSTATS dataset and pdb files, the scripts in this folder, as well as
+the raw output of the symmetry-detection algorithms stored on [Zenodo](https://doi.org/10.5281/zenodo.3228540) and using Python 3.5, run:
 
-The Python dictionary stored in *.tm_archive.pkl* contains information about transmembrane regions of the MemSTATS structures obtained by processing them with [PPM](https://dx.doi.org/10.1093%2Fnar%2Fgkr703).
+> python benchmarking_with_MemSTATS.py
 
-To obtain the structure files and the MemSTATS dataset, as well as the code for benchmarking the algorithms against MemSTATS, visit the [MemSTATS_benchmark GitHub](https://github.com/AntoniyaAleksandrova/MemSTATS_benchmark).
+Results are written in the **results/** subfolder.
 
-Note that to use the files without issues, your file system needs to be case-sensitive, i.e. it should be able to distinguish between a file name *FILE.pdb* and a file name *file.pdb*.
+To use the tests, run:
+
+> pytest -v
+
+from this folder. Note that the tests also require the raw output of the symmetry-detection algorithms.

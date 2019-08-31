@@ -9,6 +9,7 @@ tm_archive_file = '.tm_archive.pkl'
 pdb_suff = '_sb'
 pdb_list_to_test = ['1okc', '4hea', '2a65']
 
+@pytest.mark.data
 @pytest.fixture
 def test_locations_dic():
     locations = {}
@@ -27,6 +28,7 @@ def test_locations_dic():
 
     return locations
 
+@pytest.mark.data
 @pytest.fixture
 def test_tm_archive():
     tm_archive = pkl.load(open(tm_archive_file, 'rb'))
@@ -34,6 +36,7 @@ def test_tm_archive():
     return tm_archive
 
 
+@pytest.mark.data
 @pytest.mark.parametrize("pdb", pdb_list_to_test)
 @pytest.fixture
 def test_tm_chains(test_tm_archive, pdb):

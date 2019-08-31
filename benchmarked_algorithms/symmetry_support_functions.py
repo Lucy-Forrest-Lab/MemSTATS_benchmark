@@ -24,7 +24,7 @@ from Bio.SubsMat import MatrixInfo as matlist
 from Bio.Data.SCOPData import protein_letters_3to1 as aa3to1
 from Bio.Seq import Seq
 from Bio import SeqIO
-from Bio.PDB.Vector import *
+from Bio.PDB.vectors import *
 from itertools import combinations
 
 

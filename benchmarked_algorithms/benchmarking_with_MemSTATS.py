@@ -19,6 +19,7 @@ from symmetry_support_functions import *
 import glob
 
 def read_analysis_files(cesymm_out_dir, inputf):
+    print(cesymm_out_dir, inputf)
     analysis_dic = {}
     cce_type = ""
     angle = ""
@@ -121,8 +122,7 @@ def benchmark_set_symmetry(fields, col_names):
                             'repeats_text': repeats[i]})
     return bs_symm
 
-def cesymm_symmetry(pdb, tm_chains, order_matters, locations, pdb_suff):
-    cesymm_out_dir = locations['FSYSPATH']['cesymm']
+def cesymm_symmetry(cesymm_out_dir, pdb, tm_chains, order_matters, locations, pdb_suff):
     if os.path.isfile(cesymm_out_dir+pdb+"_stdout.out"):
         cesymm_dic = cesymm_data(cesymm_out_dir, pdb)
     else:
@@ -489,10 +489,11 @@ def count_internal_symmetry(locations, bs, tm_archive, analysis_chain_file, out,
             order_matters='no' # Does the order of the chains in the inputf matter?
             symm[inputf]['CE-Symm']=[]
             if len(tm_chains_list)==1:
-                symm[inputf]['CE-Symm'] = cesymm_symmetry(pdb, tm_chains_list, order_matters, locations, pdb_suff)
+                symm[inputf]['CE-Symm'] = cesymm_symmetry(locations['FSYSPATH']['cesymm'], pdb, tm_chains_list, order_matters, locations,
+                                                          pdb_suff)
             else:
                 ch = inputf[5:]
-                chains = cesymm_symmetry(inputf, ch, order_matters, locations, pdb_suff)
+                chains = cesymm_symmetry(locations['FSYSPATH']['cesymm'], inputf, ch, order_matters, locations, pdb_suff)
                 # Add the chain to the dictionary eliminating any redundant "None" entries
                 if len(symm[inputf]['CE-Symm'])>0 and symm[inputf]['CE-Symm'][0]['order']==None:
                     symm[inputf]['CE-Symm']=[]
@@ -555,7 +556,8 @@ def count_internal_symmetry(locations, bs, tm_archive, analysis_chain_file, out,
                         filename = entry[16].split('&amp;')
                         filepath = entry[17].split('&amp;')
                         for f in range(len(filename)):
-                            chain = chain + cesymm_symmetry(filename[f], ch, order_matters, locations, pdb_suff)
+                            chain = chain + cesymm_symmetry(filepath[f], filename[f], ch, order_matters, locations,
+                                                            pdb_suff)
                         break
                 chains = chains + chain
             symm[inputf]['EncoMPASS']={}
@@ -734,7 +736,8 @@ def count_quat_symmetry(locations, bs, tm_archive, analysis_whole_file, out, omi
 
             # Read the symmetry data from CE-Symm
             order_matters = 'no'  # Does the order of the chains in the pdb file matter?
-            symm[inputf]['CE-Symm'] = cesymm_symmetry(pdb, tm_chains_list, order_matters, locations, pdb_suff)
+            symm[inputf]['CE-Symm'] = cesymm_symmetry(locations['FSYSPATH']['cesymm'], pdb, tm_chains_list, order_matters, locations,
+                                                      pdb_suff)
             for c in symm[inputf]['CE-Symm']:  # Eliminate internal symmetries
                 if c['symm_units'] == 'Internal':
                     symm[inputf]['CE-Symm'].remove(c)
@@ -770,7 +773,8 @@ def count_quat_symmetry(locations, bs, tm_archive, analysis_whole_file, out, omi
                     filename = entry[16]
                     chains_in_order = entry[1]
                     filepath = entry[17]
-                    whole_pdb = cesymm_symmetry(filepath, chains_in_order, order_matters, locations, pdb_suff)
+                    whole_pdb = cesymm_symmetry(filepath, filename, chains_in_order, order_matters, locations,
+                                                pdb_suff)
                     break
             for c in whole_pdb:  # Eliminate internal symmetries
                 if c['symm_units'] == 'Internal':

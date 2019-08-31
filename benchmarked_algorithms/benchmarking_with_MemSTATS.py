@@ -14,6 +14,7 @@
 import pandas as pd
 import datetime
 import copy
+import pickle as pkl
 from symmetry_support_functions import *
 import glob
 
@@ -84,7 +85,6 @@ def read_analysis_files(cesymm_out_dir, inputf):
     analysis_dic['repeat_level']=repeat_level
     return analysis_dic
 
-
 def benchmark_set_symmetry(fields, col_names):
     # Takes a line from the benchmark set table and returns a list of dictionaries for each symmetry in the entry
     bs_symm = []
@@ -121,7 +121,8 @@ def benchmark_set_symmetry(fields, col_names):
                             'repeats_text': repeats[i]})
     return bs_symm
 
-def cesymm_symmetry(cesymm_out_dir, pdb, tm_chains, order_matters, out_dir, pdb_dir, pdb_suff):
+def cesymm_symmetry(pdb, tm_chains, order_matters, locations, pdb_suff):
+    cesymm_out_dir = locations['FSYSPATH']['cesymm']
     if os.path.isfile(cesymm_out_dir+pdb+"_stdout.out"):
         cesymm_dic = cesymm_data(cesymm_out_dir, pdb)
     else:
@@ -138,10 +139,10 @@ def cesymm_symmetry(cesymm_out_dir, pdb, tm_chains, order_matters, out_dir, pdb_
         repeats_list = []
 
         # Figure out the actual ranges of each repeat
-        wkdir = out_dir + "tmp/"
+        wkdir = locations['OPT']['temppath']
         if not os.path.isdir(wkdir):
             os.mkdir(wkdir)
-        oriented_opm = pdb_dir + pdb[0:4] + pdb_suff + '.pdb'
+        oriented_opm = locations['FSYSPATH']['whole'] + pdb[0:4] + pdb_suff + '.pdb'
         if order_matters=='yes':
             num = strip_tm_chains_in_order(wkdir, pdb[0:4], oriented_opm, tm_chains)
         else:
@@ -177,7 +178,8 @@ def cesymm_symmetry(cesymm_out_dir, pdb, tm_chains, order_matters, out_dir, pdb_
 
     return cs_symm
 
-def symd_symmetry(symd_out_dir, pdb, tm_chains, order_matters, out_dir, pdb_dir, pdb_suff, zScoreThreshold):
+def symd_symmetry(pdb, tm_chains, order_matters, locations, pdb_suff, zScoreThreshold):
+    symd_out_dir = locations['FSYSPATH']['symd']
     symd_dic = symd_data(symd_out_dir, pdb)
     symd_symm = []
     if symd_dic['topology'] == 'na' or symd_dic['unit_angle'] =='na' or float(symd_dic['z_tmscore']) < zScoreThreshold:
@@ -196,10 +198,10 @@ def symd_symmetry(symd_out_dir, pdb, tm_chains, order_matters, out_dir, pdb_dir,
             topology = 'Antiparallel'
 
         # Figure out the actual ranges of the aligned pieces
-        wkdir = out_dir + "tmp/"
+        wkdir = locations['OPT']['temppath']
         if not os.path.isdir(wkdir):
             os.mkdir(wkdir)
-        oriented_opm = pdb_dir + pdb[0:4] + pdb_suff + '.pdb'
+        oriented_opm = locations['FSYSPATH']['whole'] + pdb[0:4] + pdb_suff + '.pdb'
         if order_matters=='yes':
             strip_tm_chains_in_order(wkdir, pdb[0:4], oriented_opm, tm_chains)
         else:
@@ -226,11 +228,12 @@ def symd_symmetry(symd_out_dir, pdb, tm_chains, order_matters, out_dir, pdb_dir,
 
     return symd_symm
 
-def ananas_symmetry(ananas_out_dir, pdb, tm_chains, out_dir, pdb_dir, pdb_suff, RmsdThreshold=10):
-    wkdir = out_dir + "tmp/"
+def ananas_symmetry(pdb, tm_chains, locations, pdb_suff, RmsdThreshold=10):
+    ananas_out_dir = locations['FSYSPATH']['ananas']
+    wkdir = locations['OPT']['temppath']
     if not os.path.isdir(wkdir):
         os.mkdir(wkdir)
-    oriented_opm = pdb_dir + pdb[0:4] + pdb_suff + '.pdb'
+    oriented_opm = locations['FSYSPATH']['whole'] + pdb[0:4] + pdb_suff + '.pdb'
     strip_tm_chains(wkdir, pdb[0:4], oriented_opm, tm_chains)
     oriented = wkdir + pdb[0:4] + "_tmp.pdb"
     oriented_struct = parse_structure(oriented)[0]
@@ -431,7 +434,7 @@ def in_benchmark_counter(symm_dic, inputf, b, method, submethod):
 
     return positive, coverage
 
-def count_internal_symmetry(bs, tm_archive, analysis_whole_file, analysis_chain_file, out, omit_type, transfer, pdb_suff, tab):
+def count_internal_symmetry(locations, bs, tm_archive, analysis_chain_file, out, omit_type, transfer, pdb_suff, tab):
     print("####### Counting internal symmetry excluding " + omit_type + " proteins. Inferred symmetries considered: " + transfer + " ########")
     out.write("####### Counting internal symmetry excluding " + omit_type + " proteins. Inferred symmetries considered: " + transfer + " ########\n")
 
@@ -486,10 +489,10 @@ def count_internal_symmetry(bs, tm_archive, analysis_whole_file, analysis_chain_
             order_matters='no' # Does the order of the chains in the inputf matter?
             symm[inputf]['CE-Symm']=[]
             if len(tm_chains_list)==1:
-                symm[inputf]['CE-Symm'] = cesymm_symmetry(cesymm_out_dir,pdb,tm_chains_list,order_matters,out_dir, pdb_dir,pdb_suff)
+                symm[inputf]['CE-Symm'] = cesymm_symmetry(pdb, tm_chains_list, order_matters, locations, pdb_suff)
             else:
                 ch = inputf[5:]
-                chains = cesymm_symmetry(cesymm_out_dir,inputf,ch,order_matters,out_dir,pdb_dir,pdb_suff)
+                chains = cesymm_symmetry(inputf, ch, order_matters, locations, pdb_suff)
                 # Add the chain to the dictionary eliminating any redundant "None" entries
                 if len(symm[inputf]['CE-Symm'])>0 and symm[inputf]['CE-Symm'][0]['order']==None:
                     symm[inputf]['CE-Symm']=[]
@@ -504,11 +507,11 @@ def count_internal_symmetry(bs, tm_archive, analysis_whole_file, analysis_chain_
             # Read the symmetry data from SymD
             symm[inputf]['SymD'] = []
             if len(tm_chains_list) == 1:
-                symm[inputf]['SymD'] = symd_symmetry(symd_out_dir, pdb, tm_chains_list, order_matters, out_dir,pdb_dir,
-                                                         pdb_suff, zScoreThreshold)
+                symm[inputf]['SymD'] = symd_symmetry(pdb, tm_chains_list, order_matters, locations, pdb_suff,
+                                                     zScoreThreshold)
             else:
                 ch = inputf[5:]
-                chains = symd_symmetry(symd_out_dir, inputf, ch, order_matters, out_dir,pdb_dir, pdb_suff, zScoreThreshold)
+                chains = symd_symmetry(inputf, ch, order_matters, locations, pdb_suff, zScoreThreshold)
                 # Add the chain to the dictionary eliminating any redundant "None" entries
                 if len(symm[inputf]['SymD']) > 0 and symm[inputf]['SymD'][0]['order'] == None:
                     symm[inputf]['SymD'] = []
@@ -527,9 +530,9 @@ def count_internal_symmetry(bs, tm_archive, analysis_whole_file, analysis_chain_
             trans_chains = []
             order_matters='yes'
             if transfer == 'yes':
-                for f in glob.glob(symmetry_dir + 'encompass/transfer/' + pdb + '_transfer.axes'):
+                for f in glob.glob(locations['FSYSPATH']['transfer'] + pdb + '_transfer.axes'):
                     fn = f.split('/')[-1][:-5]
-                    trans_chains = read_transfer_symmetry(symmetry_dir + 'encompass/transfer/', fn)
+                    trans_chains = read_transfer_symmetry(locations['FSYSPATH']['transfer'], fn)
             ### Symmetry in chain
             chains = []
             if len(fields[col_names['TM-Chains']].strip(';'))>0:
@@ -538,9 +541,9 @@ def count_internal_symmetry(bs, tm_archive, analysis_whole_file, analysis_chain_
                 ### Symmetry from transfer (lower priority than analysis symmetry)
                 trans_chain = []
                 if transfer == 'yes':
-                    for f in glob.glob(symmetry_dir + 'encompass/transfer/' + inputf + '*transfer.axes'):
+                    for f in glob.glob(locations['FSYSPATH']['transfer']+inputf+'*transfer.axes'):
                         fn = f.split('/')[-1][:-5]
-                        trans_chain = trans_chain + read_transfer_symmetry(symmetry_dir + 'encompass/transfer/',fn)
+                        trans_chain = trans_chain + read_transfer_symmetry(locations['FSYSPATH']['transfer'],fn)
                 trans_chains = trans_chains + trans_chain
                 ### Symmetry from analysis
                 chain=[]
@@ -552,7 +555,7 @@ def count_internal_symmetry(bs, tm_archive, analysis_whole_file, analysis_chain_
                         filename = entry[16].split('&amp;')
                         filepath = entry[17].split('&amp;')
                         for f in range(len(filename)):
-                            chain = chain + cesymm_symmetry(filepath[f], filename[f], ch, order_matters, out_dir,pdb_dir,pdb_suff)
+                            chain = chain + cesymm_symmetry(filename[f], ch, order_matters, locations, pdb_suff)
                         break
                 chains = chains + chain
             symm[inputf]['EncoMPASS']={}
@@ -675,7 +678,7 @@ def count_internal_symmetry(bs, tm_archive, analysis_whole_file, analysis_chain_
     return counters
 
 
-def count_quat_symmetry(bs, tm_archive, analysis_whole_file, out, omit_type,pdb_suff, tab, quatsymm_file):
+def count_quat_symmetry(locations, bs, tm_archive, analysis_whole_file, out, omit_type,pdb_suff, tab):
     print("####### Counting quaternary symmetry excluding " + omit_type + " proteins")
     out.write("####### Counting quaternary symmetry excluding " + omit_type + " proteins" + "\n")
 
@@ -731,7 +734,7 @@ def count_quat_symmetry(bs, tm_archive, analysis_whole_file, out, omit_type,pdb_
 
             # Read the symmetry data from CE-Symm
             order_matters = 'no'  # Does the order of the chains in the pdb file matter?
-            symm[inputf]['CE-Symm'] = cesymm_symmetry(cesymm_out_dir, pdb, tm_chains_list, order_matters, out_dir,pdb_dir,pdb_suff)
+            symm[inputf]['CE-Symm'] = cesymm_symmetry(pdb, tm_chains_list, order_matters, locations, pdb_suff)
             for c in symm[inputf]['CE-Symm']:  # Eliminate internal symmetries
                 if c['symm_units'] == 'Internal':
                     symm[inputf]['CE-Symm'].remove(c)
@@ -741,8 +744,8 @@ def count_quat_symmetry(bs, tm_archive, analysis_whole_file, out, omit_type,pdb_
                 
 
             # Read the symmetry data from SymD
-            symm[inputf]['SymD'] = symd_symmetry(symd_out_dir, pdb, tm_chains_list, order_matters, out_dir,pdb_dir,
-                                                         pdb_suff, zScoreThreshold)
+            symm[inputf]['SymD'] = symd_symmetry(pdb, tm_chains_list, order_matters, locations, pdb_suff,
+                                                 zScoreThreshold)
             for c in symm[inputf]['SymD']:  # Eliminate internal symmetries
                 if c['symm_units'] == 'Internal':
                     symm[inputf]['SymD'].remove(c)
@@ -751,7 +754,7 @@ def count_quat_symmetry(bs, tm_archive, analysis_whole_file, out, omit_type,pdb_
                     {'order': None, 'topology': None, 'group': None, 'symm_units': None, 'aligned': None}]
                 
             # Read the symmetry data from AnAnaS
-            symm[inputf]['AnAnaS'] = ananas_symmetry(ananas_out_dir, pdb, tm_chains_list, out_dir, pdb_dir, pdb_suff)
+            symm[inputf]['AnAnaS'] = ananas_symmetry(pdb, tm_chains_list, locations, pdb_suff)
 
 
             # Read the symmetry data from EncoMPASS
@@ -767,7 +770,7 @@ def count_quat_symmetry(bs, tm_archive, analysis_whole_file, out, omit_type,pdb_
                     filename = entry[16]
                     chains_in_order = entry[1]
                     filepath = entry[17]
-                    whole_pdb = cesymm_symmetry(filepath, filename, chains_in_order, order_matters, out_dir, pdb_dir, pdb_suff)
+                    whole_pdb = cesymm_symmetry(filepath, chains_in_order, order_matters, locations, pdb_suff)
                     break
             for c in whole_pdb:  # Eliminate internal symmetries
                 if c['symm_units'] == 'Internal':
@@ -883,12 +886,11 @@ def count_quat_symmetry(bs, tm_archive, analysis_whole_file, out, omit_type,pdb_
         type_name = 'alpha'
     else:
         type_name = 'beta'
-    writeout_benchmark_results(benchmark_dic, out_dir + 'MemSTATS-' + tab + '_' + type_name +'_quat_zscore' + str(zScoreThreshold) +'_' + str(datetime.date.today()) + '_results.tsv', bs, zScoreThreshold, quatsymm_file)
+    writeout_benchmark_results(benchmark_dic, out_dir + 'MemSTATS-' + tab + '_' + type_name +'_quat_zscore' + str(zScoreThreshold) +'_' + str(datetime.date.today()) + '_results.tsv', bs, zScoreThreshold, locations['FSYSPATH']['quatsymm'])
     return counters
 
 ########## Main #################
 if __name__ == "__main__":
-    pics = True
 
     # Get the benchmark set
     tab = '20-May-19'
@@ -900,18 +902,26 @@ if __name__ == "__main__":
 
     # Define paths to key directories and files
     symmetry_dir = 'symmetry/'
-    cesymm_out_dir = symmetry_dir + 'cesymm/'
-    symd_out_dir = symmetry_dir + 'symd/'
-    ananas_out_dir = symmetry_dir + 'ananas/'
+
+    locations = {}
+    locations['FSYSPATH'] = {}
+    locations['FSYSPATH']['cesymm'] = symmetry_dir + 'cesymm/'  # path to CE-Symm output files
+    locations['FSYSPATH']['symd'] = symmetry_dir + 'symd/'  # path to SymD output files
+    locations['FSYSPATH']['ananas'] = symmetry_dir + 'ananas/'  # path to AnAnaS output files
+    locations['FSYSPATH']['transfer'] = symmetry_dir + 'encompass/transfer/' # path to inferred symmetry output files (EncoMPASS)
+    locations['FSYSPATH']['quatsymm'] =  symmetry_dir + 'quatsymm/memstats_with_quatsymm.pkl'  # dictionary of QuatSymm results
+    locations['FSYSPATH']['whole'] = '../MemSTATS_pdbs/'  # path to pdb files
+
     analysis_whole_file = open(symmetry_dir + 'encompass/analysis_symmetries_whole.txt', 'r')
     analysis_chain_file = open(symmetry_dir + 'encompass/analysis_symmetries_chains.txt', 'r')
-    quatsymm_results = symmetry_dir + 'quatsymm/memstats_with_quatsymm.pkl'
-    tm_archive = pkl.load(open('.tm_archive.pkl', 'rb')) # includessymm information extracted from inserting proteins in the membrane with OPM
-    pdb_dir = '../MemSTATS_pdbs/'
+    tm_archive = pkl.load(open('.tm_archive.pkl', 'rb')) # includes information extracted from inserting proteins in the membrane with OPM
     pdb_suff = '_sb' # coordinate files are named XXXX + pdb_suff + '.pdb', eg. '1okc_sb.pdb'
     out_dir = os.getcwd() + '/results/'
     if os.path.isdir(out_dir) == False:
         os.mkdir(out_dir)
+    locations['OPT'] = {}
+    locations['OPT']['temppath'] = out_dir + 'tmp/'  # path to working directory for storing intermediary outputs
+
 
     # Define SymD significance threshold. Results with higher z-score will be considered significant.
     zScoreThreshold = 10 # authors recommend 8 or 10
@@ -926,9 +936,9 @@ if __name__ == "__main__":
     types = ['beta', 'alpha']
     for i,omit_type in enumerate(types):
         results[types[(i + 1) % len(types)]] = {}
-        results[types[(i + 1) % len(types)]]['quaternary'] = count_quat_symmetry(bs_quat, tm_archive, analysis_whole_file, out_file, omit_type, pdb_suff, tab, quatsymm_results)
-        results[types[(i + 1) % len(types)]]['internal'] = count_internal_symmetry(bs_int, tm_archive, analysis_whole_file, analysis_chain_file, out_file, omit_type, 'no', pdb_suff, tab)
-        results[types[(i + 1) % len(types)]]['internal with transfer'] = count_internal_symmetry(bs_int, tm_archive, analysis_whole_file, analysis_chain_file, out_file, omit_type, 'yes',pdb_suff, tab)
+        results[types[(i + 1) % len(types)]]['quaternary'] = count_quat_symmetry(locations, bs_quat, tm_archive, analysis_whole_file, out_file, omit_type, pdb_suff, tab)
+        results[types[(i + 1) % len(types)]]['internal'] = count_internal_symmetry(locations, bs_int, tm_archive, analysis_chain_file, out_file, omit_type, 'no', pdb_suff, tab)
+        results[types[(i + 1) % len(types)]]['internal with transfer'] = count_internal_symmetry(locations, bs_int, tm_archive, analysis_chain_file, out_file, omit_type, 'yes',pdb_suff, tab)
 
     pkl.dump(results, open(out_dir + 'benchmark_results_' + tab + '_zscore' + str(zScoreThreshold) + '_' + str(datetime.date.today()) +'.pkl', 'wb'))
 

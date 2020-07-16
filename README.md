@@ -57,3 +57,8 @@ The PDB files of the structures are included in MemSTATS_pdbs.tar.gz. The files 
 
 
 Results of symmetry-detection methods benchmarked against MemSTATS can be found in the **benchmarked_algorithms/** subfolder.
+
+
+## Cite this work
+
+Aleksandrova, A. A., Sarti, E., & Forrest, L. R (2020). MemSTATS: A Benchmark Set of Membrane Protein Symmetries and Pseudosymmetries. J. Mol. Biol. doi: https://doi.org/10.1016/j.jmb.2019.09.020

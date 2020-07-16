@@ -1,4 +1,4 @@
-# Benchmarking CE-Symm 2.0, SymD 1.61, AnAnaS 0.8, EncoMPASS and QuatSymm
+# Benchmarking CE-Symm 2.0, SymD 1.61, AnAnaS 0.8, MSSD and QuatSymm
 ---
 
 To benchmark the algorithms, download the MemSTATS dataset and pdb files, the scripts in this folder, as well as

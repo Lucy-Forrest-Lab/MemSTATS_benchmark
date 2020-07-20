@@ -61,4 +61,5 @@ Results of symmetry-detection methods benchmarked against MemSTATS can be found 
 
 ## Cite this work
 
-Aleksandrova, A. A., Sarti, E., & Forrest, L. R (2020). MemSTATS: A Benchmark Set of Membrane Protein Symmetries and Pseudosymmetries. J. Mol. Biol. doi: https://doi.org/10.1016/j.jmb.2019.09.020
+Aleksandrova, A. A., Sarti, E., & Forrest, L. R (2020). MemSTATS: A Benchmark Set of Membrane Protein Symmetries and Pseudosymmetries. J. Mol. Biol. 
+[![doi](https://img.shields.io/badge/doi-10.1016%2Fj.jmb.2019.09.020-blue.svg?style=flat)](https://doi.org/10.1016/j.jmb.2019.09.020)
